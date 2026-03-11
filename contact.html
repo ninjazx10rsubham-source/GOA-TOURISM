@@ -1,37 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Goa Tourism</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Goa Tourism</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="beaches.html">Beaches</a></li>
-                <li><a href="waterfalls.html">Waterfalls</a></li>
-                <li><a href="forts.html">Forts</a></li>
-                <li><a href="seafood.html">Seafood</a></li>
-                <li><a href="hotels.html">Hotels</a></li>
-                <li><a href="packages.html">Packages</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<section class="section">
+    <h2>Contact / Enquiry</h2>
+    <form class="contact-form" onsubmit="sendWhatsApp(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <textarea id="message" rows="5" placeholder="Your Message / Enquiry" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</section>
 
-    <section class="section">
-        <h2>Contact / Enquiry</h2>
-        <form class="contact-form" action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="message" rows="5" placeholder="Your Message / Enquiry" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-</body>
-</html>
+<script>
+function sendWhatsApp(e) {
+    e.preventDefault(); // Prevent form from submitting normally
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+
+    // Your WhatsApp number (replace with your number, include country code, no +)
+    const adminNumber = '919876543210'; 
+
+    const text = `New Enquiry from Goa Tourism Website:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+
+    // Open WhatsApp Web or App
+    const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+}
+</script>
