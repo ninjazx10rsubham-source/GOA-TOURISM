@@ -46,7 +46,7 @@ header nav ul li a:hover {
     color: #ffe66d;
 }
 
-/* Hero Section */
+/* Hero Section (only for index.html) */
 .hero {
     position: relative;
     text-align: center;
